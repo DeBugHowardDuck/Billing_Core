@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/billing_core/__init__.py
+src/billing_core/application/__init__.py
+src/billing_core/domain/__init__.py
+src/billing_core/infrastructure/__init__.py
+src/billing_core_demo.egg-info/PKG-INFO
+src/billing_core_demo.egg-info/SOURCES.txt
+src/billing_core_demo.egg-info/dependency_links.txt
+src/billing_core_demo.egg-info/requires.txt
+src/billing_core_demo.egg-info/top_level.txt
+tests/test_sanity.py
