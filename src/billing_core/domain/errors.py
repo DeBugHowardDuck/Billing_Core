@@ -25,3 +25,13 @@ class InvalidAmountError(BillingError):
     def __init__(self, amount: object) -> None:
         super().__init__(f"Invalid amount: {amount!r}")
         self.amount = amount
+
+
+class InvalidStateTransitionError(BillingError):
+    """Raised when an entity is moved to an invalid state."""
+
+    def __init__(self, entity: str, from_state: str, to_state: str) -> None:
+        super().__init__(f"Invalid state transition for {entity}: {from_state} -> {to_state}")
+        self.entity = entity
+        self.from_state = from_state
+        self.to_state = to_state
