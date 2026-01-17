@@ -35,3 +35,10 @@ class InvalidStateTransitionError(BillingError):
         self.entity = entity
         self.from_state = from_state
         self.to_state = to_state
+
+
+class PromoNotValidError(BillingError):
+    def __init__(self, code: str, reason: str) -> None:
+        super().__init__(f"Promo {code!r} not valid: {reason}")
+        self.code = code
+        self.reason = reason

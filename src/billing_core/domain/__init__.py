@@ -2,6 +2,7 @@ from .catalog import PlanCatalog
 from .invoice import Invoice, InvoiceStatus, LineItem
 from .money import Money
 from .plans import FlatMonthlyPlan, FreePlan, PerSeatMonthlyPlan, Plan
+from .promo import PromoCode
 from .subscription import Subscription, SubscriptionStatus
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "Invoice",
     "InvoiceStatus",
     "LineItem",
+    "PromoCode",
 ]
