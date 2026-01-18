@@ -17,6 +17,11 @@ dev = [
   "ruff>=0.6",
 ]
 
+api = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.30",
+]
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 
@@ -38,7 +43,8 @@ skip_empty = true
 
 [tool.ruff]
 target-version = "py312"
-line-length = 100
+line-length = 130
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
+
