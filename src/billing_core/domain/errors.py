@@ -42,3 +42,21 @@ class PromoNotValidError(BillingError):
         super().__init__(f"Promo {code!r} not valid: {reason}")
         self.code = code
         self.reason = reason
+
+
+class SubscriptionNotFoundError(BillingError):
+    def __init__(self, sub_id: str) -> None:
+        super().__init__(f"Subscription not found: {sub_id!r}")
+        self.sub_id = sub_id
+
+
+class InvoiceNotFoundError(BillingError):
+    def __init__(self, invoice_id: str) -> None:
+        super().__init__(f"Invoice not found: {invoice_id!r}")
+        self.invoice_id = invoice_id
+
+
+class PromoCodeNotFoundError(BillingError):
+    def __init__(self, code: str) -> None:
+        super().__init__(f"Promo code not found: {code!r}")
+        self.code = code
