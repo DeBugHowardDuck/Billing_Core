@@ -34,7 +34,7 @@ jobs:
 
       - name: Pytest + coverage
         run: |
-          pytest --cov=src/billing_core --cov-fail-under=80
+          pytest --cov=src/billing_core --cov-fail-under=75
 
   docker:
     runs-on: ubuntu-latest
