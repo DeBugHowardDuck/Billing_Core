@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 
 from billing_core.api.deps import build_service
+from billing_core.api.error_handlers import billing_error_handler
 from billing_core.domain.errors import BillingError
 
 from .routers.health import router as health_router
@@ -25,8 +25,8 @@ def create_app() -> FastAPI:
     app.include_router(promos_router)
 
     @app.exception_handler(BillingError)
-    def handle_billing_error(_: Request, exc: BillingError):
-        return JSONResponse(status_code=400, content={"error": exc.__class__.__name__, "message": str(exc)})
+    def handle_billing_error(request: Request, exc: BillingError):
+        return billing_error_handler(request, exc)
 
     return app
 

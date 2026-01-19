@@ -1,6 +1,17 @@
 README.md
 pyproject.toml
 src/billing_core/__init__.py
+src/billing_core/api/__init__.py
+src/billing_core/api/deps.py
+src/billing_core/api/error_handlers.py
+src/billing_core/api/main.py
+src/billing_core/api/schemas.py
+src/billing_core/api/settings.py
+src/billing_core/api/routers/health.py
+src/billing_core/api/routers/invoices.py
+src/billing_core/api/routers/plans.py
+src/billing_core/api/routers/promos.py
+src/billing_core/api/routers/subscriptions.py
 src/billing_core/application/__init__.py
 src/billing_core/application/repositories.py
 src/billing_core/application/services.py
