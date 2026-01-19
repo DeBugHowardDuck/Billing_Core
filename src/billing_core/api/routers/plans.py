@@ -21,15 +21,18 @@ def _to_plan_out(p: Plan) -> PlanOut:
         requires_seats=p.requires_seats,
     )
 
+
 @router.post("", response_model=PlanOut)
 def create_plan(payload: PlanCreate, svc: SvcDep):
     plan = Plan.from_config(payload.model_dump())
     svc.plans.add(plan)
     return _to_plan_out(plan)
 
+
 @router.get("", response_model=list[PlanOut])
 def list_plans(svc: SvcDep):
     return [_to_plan_out(p) for p in svc.plans.list()]
+
 
 @router.get("/{code}", response_model=PlanOut)
 def get_plan(code: str, svc: SvcDep):

@@ -107,8 +107,7 @@ class Invoice(AuditMixin, TimestampMixin):
 
         if item.amount.currency != self._currency:
             raise InvalidInvoiceLineItemError(
-                f"LineItem currency {item.amount.currency!r} "
-                f"does not match invoice currency {self._currency!r}"
+                f"LineItem currency {item.amount.currency!r} does not match invoice currency {self._currency!r}"
             )
 
         self._items.append(item)

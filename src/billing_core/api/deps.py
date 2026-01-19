@@ -28,5 +28,6 @@ def build_service() -> BillingService:
         promos=InMemoryPromoRepo(),
     )
 
+
 def get_service(request: Request) -> BillingService:
     return request.app.state.service

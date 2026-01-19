@@ -10,4 +10,5 @@ class Settings:
     port: int = int(os.getenv("APP_PORT", "8080"))
     log_level: str = os.getenv("LOG_LEVEL", "info")
 
+
 settings = Settings()

@@ -26,9 +26,9 @@ def create_app() -> FastAPI:
 
     @app.exception_handler(BillingError)
     def handle_billing_error(_: Request, exc: BillingError):
-        return JSONResponse(status_code=400,
-                            content={"error": exc.__class__.__name__, "message": str(exc)})
+        return JSONResponse(status_code=400, content={"error": exc.__class__.__name__, "message": str(exc)})
 
     return app
+
 
 app = create_app()

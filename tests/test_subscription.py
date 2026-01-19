@@ -54,9 +54,7 @@ def test_activate_only_from_trialing() -> None:
     with pytest.raises(InvalidStateTransitionError):
         s.activate()
 
-    t = Subscription.create(
-        customer_id="cust_2", plan_code="PRO", start_date=date.today(), trial_days=3
-    )
+    t = Subscription.create(customer_id="cust_2", plan_code="PRO", start_date=date.today(), trial_days=3)
     t.activate()
     assert t.status == SubscriptionStatus.ACTIVE
 

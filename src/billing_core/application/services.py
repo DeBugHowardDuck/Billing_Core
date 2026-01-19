@@ -113,11 +113,11 @@ class BillingService:
             return inv
 
     def change_seats(
-            self,
-            *,
-            sub_id: str,
-            new_seats: int,
-            change_date: date,
+        self,
+        *,
+        sub_id: str,
+        new_seats: int,
+        change_date: date,
     ) -> Invoice | None:
         with billing_transaction("change_seats"):
             sub = self.subs.get(sub_id)
@@ -181,9 +181,7 @@ class BillingService:
             except PromoCodeNotFoundError:
                 raise
 
-            already_used = self.promos.is_used_by_customer(
-                code=promo_code, customer_id=sub.customer_id
-            )
+            already_used = self.promos.is_used_by_customer(code=promo_code, customer_id=sub.customer_id)
             promo.validate_for(today=today, customer_id=sub.customer_id, already_used=already_used)
 
             sub.apply_promo(promo_code)

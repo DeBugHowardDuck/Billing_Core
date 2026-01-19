@@ -44,9 +44,7 @@ def test_fixed_promo_currency_mismatch_rejected() -> None:
 
 
 def test_promo_expired_rejected() -> None:
-    promo = PromoCode(
-        code="OLD", kind="percent", percent=10, valid_until=date.today() - timedelta(days=1)
-    )
+    promo = PromoCode(code="OLD", kind="percent", percent=10, valid_until=date.today() - timedelta(days=1))
     with pytest.raises(PromoNotValidError):
         promo.validate_for(today=date.today(), customer_id="cust_1", already_used=False)
 

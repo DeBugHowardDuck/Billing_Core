@@ -9,6 +9,7 @@ from billing_core.application.services import BillingService
 router = APIRouter(prefix="/invoices", tags=["invoices"])
 SvcDep = Annotated[BillingService, Depends(get_service)]
 
+
 def _to_invoice_out(inv) -> InvoiceOut:
     items = [
         LineItemOut(
@@ -29,7 +30,6 @@ def _to_invoice_out(inv) -> InvoiceOut:
         items=items,
         total=MoneyOut(amount=total.amount, currency=total.currency),
     )
-
 
 
 @router.get("/{invoice_id}", response_model=InvoiceOut)

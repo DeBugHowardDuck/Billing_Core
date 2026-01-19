@@ -11,6 +11,7 @@ from billing_core.domain.promo import PromoCode
 router = APIRouter(prefix="/promos", tags=["promos"])
 SvcDep = Annotated[BillingService, Depends(get_service)]
 
+
 @router.post("")
 def create_promo(payload: PromoCreate, svc: SvcDep):
     fixed = None
